@@ -1,7 +1,6 @@
 import api from "@/lib/api";
 import { Article } from "@/app/types/article";
 import { format } from "date-fns";
-import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import ArticleGrid from "@/components/article/articleGrid";
 import Footer from "@/components/footer";
