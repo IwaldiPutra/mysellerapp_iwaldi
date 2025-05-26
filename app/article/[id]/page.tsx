@@ -31,7 +31,7 @@ export default async function ArticleDetailPage({ params }: Props) {
     const otherRes = await api.get<ArticleListResponse>(`/articles`, {
       params: {
         page: 1,
-        limit: 5,
+        limit: 4,
       },
     });
 
