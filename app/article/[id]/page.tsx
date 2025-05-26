@@ -67,7 +67,10 @@ export default async function ArticleDetailPage({ params }: Props) {
             className="w-full object-cover rounded-md mb-3 h-[300px] md:h-[400px] xl:h-[500px]"
           />
         </div>
-        <ReactMarkdown>{article.content}</ReactMarkdown>
+        <div
+          className="prose max-w-none w-full"
+          dangerouslySetInnerHTML={{ __html: article.content }}
+        />
         <br />
         <br />
         {otherArticles.length > 0 && (
