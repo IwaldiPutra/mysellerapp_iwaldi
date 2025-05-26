@@ -32,6 +32,7 @@ export default function ProtectedRoute({
         }
       } catch (err) {
         router.push("/login");
+        console.error(err);
       }
     };
 
