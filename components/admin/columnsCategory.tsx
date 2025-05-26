@@ -1,8 +1,6 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { format } from "date-fns";
 
 export type Category = {

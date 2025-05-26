@@ -41,12 +41,20 @@ export default function Articles({
       await new Promise((res) => setTimeout(res, 1000));
 
       try {
-        const params: any = {
+        const params: {
+          page: number;
+          limit: number;
+          sortBy: string;
+          sortOrder: string;
+          title?: string;
+          category?: string;
+        } = {
           page: filter.page,
           limit: filter.limit,
           sortBy: "createdAt",
           sortOrder: "desc",
         };
+
         if (filter.title) params.title = filter.title;
         if (filter.categoryId !== "all") params.category = filter.categoryId;
 

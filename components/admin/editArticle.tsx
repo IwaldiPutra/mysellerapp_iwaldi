@@ -76,7 +76,7 @@ export default function EditArticle({
       } catch (err) {
         toast({
           title: "Error",
-          description: "Failed to load article data",
+          description: "Failed to load article data" + err,
           variant: "destructive",
         });
       } finally {
@@ -135,10 +135,10 @@ export default function EditArticle({
 
       toast({ title: "Success", description: "Article updated" });
       onSuccess();
-    } catch (error: any) {
+    } catch (error) {
       toast({
         title: "Update failed",
-        description: error?.response?.data?.message || "Something went wrong",
+        description: "Something went wrong" + error,
         variant: "destructive",
       });
     }

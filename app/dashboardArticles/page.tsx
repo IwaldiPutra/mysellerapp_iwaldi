@@ -5,12 +5,7 @@ import api from "@/lib/api";
 import NavbarAdmin from "@/components/navbarAdmin";
 import { Articles, columns } from "@/components/admin/columns";
 import { ArticlesTable } from "@/components/admin/articleTable";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -25,7 +20,6 @@ import AddArticle from "@/components/admin/addArticle";
 import { toast } from "@/hooks/use-toast";
 import {
   Dialog,
-  DialogTrigger,
   DialogContent,
   DialogHeader,
   DialogTitle,

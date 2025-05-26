@@ -23,9 +23,14 @@ import { DialogDescription } from "@radix-ui/react-dialog";
 import { useRouter } from "next/navigation";
 import api from "@/lib/api";
 
+type Profile = {
+  id: string;
+  username: string;
+};
+
 export default function Navbar() {
   const [showDialog, setShowDialog] = useState(false);
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
 
   const router = useRouter();

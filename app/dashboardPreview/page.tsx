@@ -28,11 +28,15 @@ interface PreviewAPI {
   limit: number;
 }
 
+interface UserData {
+  username: string;
+}
+
 export default function PreviewPage() {
   const router = useRouter();
   const [article, setArticle] = useState<ArticlePreviewData | null>(null);
   const [otherArticles, setOtherArticles] = useState<Article[]>([]);
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<UserData | null>(null);
 
   useEffect(() => {
     const data = localStorage.getItem("preview");

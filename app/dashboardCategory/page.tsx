@@ -8,7 +8,7 @@ import { CategoryTable } from "@/components/admin/categoryTable";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Plus, Edit } from "lucide-react";
+import { Plus } from "lucide-react";
 import {
   Dialog,
   DialogTrigger,
@@ -71,7 +71,7 @@ export default function CategoryDashboard() {
     } catch (error) {
       toast({
         title: "Error",
-        description: "Failed to add category",
+        description: "Failed to add category" + error,
         variant: "destructive",
       });
     } finally {
@@ -101,7 +101,7 @@ export default function CategoryDashboard() {
     } catch (error) {
       toast({
         title: "Error",
-        description: "Failed to update category",
+        description: "Failed to update category" + error,
         variant: "destructive",
       });
     } finally {
@@ -125,7 +125,7 @@ export default function CategoryDashboard() {
     } catch (error) {
       toast({
         title: "Error",
-        description: "Failed to delete category",
+        description: "Failed to delete category" + error,
         variant: "destructive",
       });
     }

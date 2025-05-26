@@ -45,16 +45,15 @@ export default function RegisterPage() {
 
   const onSubmit = async (data: RegisterFormInputs) => {
     try {
-      const res = await api.post("/auth/register", {
+      await api.post("/auth/register", {
         username: data.username,
         password: data.password,
         role: data.role.charAt(0).toUpperCase() + data.role.slice(1), // kapitalisasi awal
       });
       toast({ title: "Registrasi berhasil!", variant: "default" });
       router.push("/login");
-    } catch (error: any) {
-      const message =
-        error.response?.data?.error || "Terjadi kesalahan saat registrasi";
+    } catch (error) {
+      const message = "Terjadi kesalahan saat registrasi" + error;
       toast({ title: `Gagal registrasi: ${message}`, variant: "destructive" });
     }
   };
@@ -127,7 +126,13 @@ export default function RegisterPage() {
               </p>
             )}
           </div>
-          <Select onValueChange={(value) => setValue("role", value as any)}>
+          <Select
+            onValueChange={(value) =>
+              setValue("role", value as "admin" | "user", {
+                shouldValidate: true,
+              })
+            }
+          >
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Pilih role" />
             </SelectTrigger>

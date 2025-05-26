@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { ArrowLeft, ImagePlus } from "lucide-react";
 import { Button } from "../ui/button";
@@ -79,11 +79,6 @@ export default function AddArticle({ onBack, categories, onSuccess }: Props) {
     multiple: false,
   });
 
-  const [categoriesd] = useState([
-    { id: "1", name: "Technology" },
-    { id: "2", name: "Health" },
-    { id: "3", name: "Business" },
-  ]);
   const { toast } = useToast();
 
   const onSubmit = async (data: FormData) => {
@@ -128,12 +123,10 @@ export default function AddArticle({ onBack, categories, onSuccess }: Props) {
         description: "Article uploaded successfully!",
       });
       onSuccess();
-    } catch (error: any) {
+    } catch (error) {
       toast({
         title: "Upload failed",
-        description:
-          error?.response?.data?.message ||
-          "Something went wrong. Please try again.",
+        description: "Something went wrong. Please try again." + error,
         variant: "destructive",
       });
     }

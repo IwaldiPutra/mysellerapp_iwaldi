@@ -5,9 +5,8 @@ import "./styles.css";
 import { Color } from "@tiptap/extension-color";
 import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
-import { EditorProvider, useEditor, useCurrentEditor } from "@tiptap/react";
+import { EditorProvider, useCurrentEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import React, { useEffect } from "react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import TextAlign from "@tiptap/extension-text-align";
 import {

@@ -8,9 +8,14 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import api from "@/lib/api";
 
+interface UserData {
+  username: string;
+  role: string;
+}
+
 export default function UserProfile() {
   const router = useRouter();
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<UserData | null>(null);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {

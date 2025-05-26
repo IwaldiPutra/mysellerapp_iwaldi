@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import api from "@/lib/api";
 
@@ -12,8 +12,6 @@ export default function ProtectedRoute({
   children: React.ReactNode;
 }) {
   const router = useRouter();
-  const [role, setRole] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -28,15 +26,12 @@ export default function ProtectedRoute({
           headers: { Authorization: `Bearer ${token}` },
         });
         const userRole = res.data.role;
-        setRole(userRole);
 
         if (!allowedRoles.includes(userRole)) {
           router.push("/article");
         }
       } catch (err) {
         router.push("/login");
-      } finally {
-        setLoading(false);
       }
     };
 

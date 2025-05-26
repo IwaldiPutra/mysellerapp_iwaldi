@@ -23,6 +23,11 @@ import { useRouter, usePathname } from "next/navigation";
 import { SidebarTrigger } from "./ui/sidebar";
 import api from "@/lib/api";
 
+type Profile = {
+  id: string;
+  username: string;
+};
+
 export default function NavbarAdmin() {
   const [showDialog, setShowDialog] = useState(false);
   const pathname = usePathname();
@@ -33,7 +38,7 @@ export default function NavbarAdmin() {
     return "Articles";
   };
 
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
 
   const router = useRouter();

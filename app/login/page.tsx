@@ -47,8 +47,11 @@ export default function LoginPage() {
       } else {
         router.push("/");
       }
-    } catch (error: any) {
-      toast({ title: "Username atau password salah!", variant: "destructive" });
+    } catch (error) {
+      toast({
+        title: "Username atau password salah!" + error,
+        variant: "destructive",
+      });
     }
   };
 
